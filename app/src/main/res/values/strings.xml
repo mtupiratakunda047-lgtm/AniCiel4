@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AniCiel</string>
+    <string name="widget_continue_title">Continue watching</string>
+    <string name="widget_continue_empty">Watch something in AniCiel — it will show up here.</string>
+    <string name="widget_downloads_title">Downloads</string>
+    <string name="widget_downloads_pending">In progress</string>
+    <string name="widget_downloads_done">Done</string>
+</resources>
