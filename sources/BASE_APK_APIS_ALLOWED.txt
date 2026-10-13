@@ -1,0 +1,50 @@
+# Allowed MovieBox APIs (from base.apk only)
+# EXCLUDED: money/*, vip/*, ad/*, activity/* rewards, fission, group social, login-heavy flows
+
+## Hosts (base.apk)
+https://api.inmoviebox.com
+https://api.aoneroom.com
+https://api3.aoneroom.com
+https://api4.aoneroom.com
+https://api4sg.aoneroom.com
+https://api5.aoneroom.com
+https://api6.aoneroom.com
+https://api6sg.aoneroom.com
+https://h5.aoneroom.com
+
+## subject-api (catalog + play + download)
+/wefeed-mobile-bff/subject-api/get
+/wefeed-mobile-bff/subject-api/play-info
+/wefeed-mobile-bff/subject-api/resource
+/wefeed-mobile-bff/subject-api/resource-position
+/wefeed-mobile-bff/subject-api/season-info
+/wefeed-mobile-bff/subject-api/search
+/wefeed-mobile-bff/subject-api/search-rank
+/wefeed-mobile-bff/subject-api/search-rank/v2
+/wefeed-mobile-bff/subject-api/search-suggest
+/wefeed-mobile-bff/subject-api/trending/v2
+/wefeed-mobile-bff/subject-api/top-rec
+/wefeed-mobile-bff/subject-api/detail-rec
+/wefeed-mobile-bff/subject-api/daily-movie-rec
+/wefeed-mobile-bff/subject-api/play-related-rec
+/wefeed-mobile-bff/subject-api/see-list-v2
+/wefeed-mobile-bff/subject-api/want-to-see
+/wefeed-mobile-bff/subject-api/list
+/wefeed-mobile-bff/subject-api/filter-items
+/wefeed-mobile-bff/subject-api/bottom-tab
+/wefeed-mobile-bff/subject-api/get-ext-captions
+/wefeed-mobile-bff/subject-api/get-stream-captions
+/wefeed-mobile-bff/subject-api/subtitle-search
+/wefeed-mobile-bff/subject-api/start-download-resource
+/wefeed-mobile-bff/subject-api/finish-download-resource
+/wefeed-mobile-bff/subject-api/dub-info
+/wefeed-mobile-bff/subject-api/staff-info
+/wefeed-mobile-bff/tab-operating
+/wefeed-mobile-bff/app/config
+
+## Intentionally NOT wired (present in base.apk but removed for AniCiel policy)
+/wefeed-mobile-bff/money/*
+/wefeed-mobile-bff/vip/*
+/wefeed-mobile-bff/ad/*
+/wefeed-mobile-bff/activity/*
+/wefeed-mobile-bff/user-api/login|register|third-login

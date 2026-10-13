@@ -1,0 +1,8 @@
+api.aoneroom.com
+api.inmoviebox.com
+api3.aoneroom.com
+api4.aoneroom.com
+api4sg.aoneroom.com
+api5.aoneroom.com
+api6.aoneroom.com
+api6sg.aoneroom.com
