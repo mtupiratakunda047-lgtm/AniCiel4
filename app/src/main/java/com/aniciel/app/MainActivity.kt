@@ -1256,35 +1256,3 @@ private fun SimilarSection(details: MediaDetails, onOpen: (CatalogItem) -> Unit)
         }
     }
 }
-
-
-@Composable
-private fun AdultAgeGateDialog(onConfirm: () -> Unit, onDecline: () -> Unit) {
-    AlertDialog(
-        onDismissRequest = onDecline,
-        containerColor = CardBlack,
-        title = {
-            Text(
-                "Are you 18 years old or older?",
-                fontWeight = FontWeight.Bold,
-                color = Color.White
-            )
-        },
-        text = {
-            Text(
-                "This section contains adult content. Please confirm your age to continue. No adult previews are shown until you confirm.",
-                color = Color(0xFFB0BEC5)
-            )
-        },
-        confirmButton = {
-            Button(
-                onClick = onConfirm,
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFE53935))
-            ) { Text("YES — I'm 18+", color = Color.White) }
-        },
-        dismissButton = {
-            OutlinedButton(onClick = onDecline) { Text("NO — Exit") }
-        }
-    )
-}
-

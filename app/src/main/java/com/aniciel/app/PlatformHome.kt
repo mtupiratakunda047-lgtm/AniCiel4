@@ -41,9 +41,6 @@ enum class Hub(val label: String, val emoji: String, val accent: Color) {
     ADULT("Adult", "🔞", Color(0xFFEF5350))
 }
 
-private val GenreMovies = listOf("All", "Action", "Adventure", "Comedy", "Sci-Fi")
-private val GenreAnime = listOf("All", "Action", "Fantasy", "Adventure", "Romance")
-private val GenreManga = listOf("All", "Action", "Romance", "Fantasy", "Drama")
 
 @Composable
 fun PlatformRoot(

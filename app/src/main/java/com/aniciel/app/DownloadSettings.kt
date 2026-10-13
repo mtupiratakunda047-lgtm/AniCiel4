@@ -1,5 +1,6 @@
 package com.aniciel.app
 
+import android.content.Context
 import android.os.Environment
 import java.io.File
 
@@ -10,5 +11,9 @@ object DownloadSettings {
 
     fun publicAniCielRoot(): File = publicDownloadDir()
 
+    /** No-arg form. */
     fun resolvedDir(): File = publicDownloadDir().also { it.mkdirs() }
+
+    /** Context overload kept so older call sites compile. */
+    fun resolvedDir(context: Context): File = resolvedDir()
 }
