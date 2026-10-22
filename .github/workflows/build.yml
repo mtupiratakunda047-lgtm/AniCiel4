@@ -12,20 +12,48 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: '17'
+          java-version: "17"
 
       - uses: android-actions/setup-android@v3
         with:
-          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
+          packages: "platform-tools platforms;android-36 build-tools;35.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 8.11.1
 
       - name: Assemble debug APK
-        run: gradle assembleDebug --no-daemon
+        run: |
+          set -e
+          gradle assembleDebug --no-daemon --stacktrace
+          echo "=== APK outputs ==="
+          find app/build/outputs/apk -type f -name "*.apk" -ls || true
+
+      - name: Package clean APK for download
+        run: |
+          set -e
+          mkdir -p dist
+          APK=$(find app/build/outputs/apk/debug -name "*.apk" -type f | head -1)
+          if [ -z "$APK" ]; then
+            echo "ERROR: no debug APK produced"
+            find app/build/outputs -type f | head -50
+            exit 1
+          fi
+          # Validate ZIP/APK structure (APK is a zip)
+          unzip -t "$APK" >/dev/null
+          SIZE=$(stat -c%s "$APK")
+          echo "APK=$APK SIZE=$SIZE"
+          if [ "$SIZE" -lt 100000 ]; then
+            echo "ERROR: APK too small ($SIZE bytes) — likely corrupt"
+            exit 1
+          fi
+          cp -f "$APK" dist/AniCiel-debug.apk
+          ls -lh dist/AniCiel-debug.apk
+          # sanity: must contain AndroidManifest.xml
+          unzip -l dist/AniCiel-debug.apk | grep -q AndroidManifest.xml
 
       - uses: actions/upload-artifact@v4
         with:
-          name: AniCiel-MediaHub-debug
-          path: app/build/outputs/apk/debug/*.apk
+          name: AniCiel-debug-apk
+          path: dist/AniCiel-debug.apk
+          if-no-files-found: error
