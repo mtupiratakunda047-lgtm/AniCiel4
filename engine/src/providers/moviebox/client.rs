@@ -8,13 +8,13 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, RwLock};
 
 const HOST_POOL: &[&str] = &[
+    "https://api.inmoviebox.com",
+    "https://api.aoneroom.com",
     "https://api6.aoneroom.com",
     "https://api5.aoneroom.com",
     "https://api4.aoneroom.com",
-    "https://api4sg.aoneroom.com",
     "https://api3.aoneroom.com",
-    "https://api6sg.aoneroom.com",
-    "https://api.inmoviebox.com",
+    "https://api4sg.aoneroom.com",
 ];
 
 const RETRY_STATUS_CODES: &[u16] = &[403, 406, 407, 429, 500, 502, 503, 504];
